@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Решения BITOBE — ИИ в работе руководителей, HR и корпоративного обучения</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#19194C;--blue:#182D8D;--copper:#BE9176;--teal:#218787;
+  --ink:#1b1b2e;--paper:#ffffff;--mist:#f4f4f2;--mist2:#ececeb;
+  --line:#e2e2e0;--muted:#6b6b7a;--maxw:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Onest',system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);background:var(--paper);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.01em;line-height:1.14}
+p{margin:0}a{color:inherit}
+ul{margin:0;padding:0;list-style:none}
+
+/* top bar */
+.topbar{border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{font-weight:700;letter-spacing:.14em;font-size:15px;color:var(--navy)}
+.brand span{color:var(--copper)}
+.topmeta{font-size:13px;color:var(--muted);letter-spacing:.02em}
+
+/* hero */
+.hero{position:relative;background:var(--mist);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr;min-height:auto;align-items:center}
+.hero-copy{width:100%;max-width:var(--maxw);margin:0 auto;padding:92px 32px 96px;position:relative;z-index:2}
+.kicker{display:inline-block;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);font-weight:600;margin-bottom:22px}
+.hero-copy h1{font-size:clamp(30px,3.9vw,46px);color:var(--navy)}
+.hero-copy h1 em{font-family:'PT Serif',serif;font-style:italic;font-weight:400;color:var(--blue)}
+.hero-lead{margin-top:24px;font-size:18.5px;color:#3a3a4d;max-width:31em}
+.hero-res{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
+.hero-res span{font-size:13.5px;color:var(--navy);border:1px solid #d7d7d4;border-radius:999px;padding:8px 16px;background:rgba(255,255,255,.6)}
+
+/* section scaffolding */
+section{padding:84px 0}
+.eyebrow{font-size:13px;letter-spacing:.17em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:12px}
+.sec-title{font-size:clamp(24px,3vw,34px);color:var(--navy);max-width:20em}
+.sec-sub{margin-top:16px;color:var(--muted);max-width:50em;font-size:17px}
+.sec-head{margin-bottom:46px}
+
+/* intro band */
+.intro{background:var(--navy);color:#e7e7f2}
+.intro .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center}
+.intro p{font-size:18px;color:#c9c9de;line-height:1.6}
+.intro p b{color:#fff;font-weight:500}
+.intro .res-list{display:flex;flex-direction:column;gap:14px}
+.intro .res-list div{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:6px;padding:18px 20px;font-size:16px;color:#fff}
+.intro .res-list b{font-family:'PT Serif',serif;font-style:italic;color:var(--copper);font-weight:400;margin-right:8px}
+
+/* tasks (4) */
+.tasks{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.task{background:var(--paper);padding:30px 26px;display:flex;flex-direction:column}
+.task .no{font-family:'PT Serif',serif;font-style:italic;color:var(--copper);font-size:19px;margin-bottom:16px}
+.task h3{font-size:18px;color:var(--navy);margin-bottom:12px;line-height:1.25}
+.task p{color:#4a4a5a;font-size:15px;line-height:1.5}
+
+/* solutions (01-04) */
+.solution{border:1px solid var(--line);border-radius:6px;background:var(--paper);padding:0;margin-bottom:26px;overflow:hidden}
+.sol-head{display:flex;gap:26px;align-items:flex-start;padding:36px 40px 28px;border-bottom:1px solid var(--line)}
+.sol-head .sno{font-family:'PT Serif',serif;font-style:italic;color:var(--copper);font-size:40px;line-height:.9;flex:none}
+.sol-head .who{font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:8px}
+.sol-head h3{font-size:clamp(22px,2.4vw,28px);color:var(--navy)}
+.sol-body{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:32px 40px 8px}
+.fl{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:10px}
+.fl.t{color:var(--teal)}.fl.b{color:var(--blue)}.fl.c{color:var(--copper)}
+.block+.block{margin-top:26px}
+.block p{font-size:15.5px;color:#454556;line-height:1.55}
+.do-list li{position:relative;padding-left:20px;font-size:15.5px;color:#454556;line-height:1.5;margin-bottom:11px}
+.do-list li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;background:var(--copper);border-radius:50%}
+.get-list{display:grid;grid-template-columns:1fr;gap:9px}
+.get-list li{position:relative;padding-left:24px;font-size:15px;color:#3f3f50;line-height:1.4}
+.get-list li::before{content:"✓";position:absolute;left:0;top:0;color:var(--teal);font-weight:700;font-size:13px}
+.sol-change{margin:8px 40px 0;background:var(--mist);border-radius:6px;padding:22px 26px}
+.sol-change .fl{color:var(--navy)}
+.sol-change p{font-size:15.5px;color:#3a3a4d;line-height:1.55}
+.sol-meta{padding:20px 40px 34px;font-size:14px;color:var(--muted)}
+.sol-meta b{color:var(--navy);font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:12.5px}
+
+/* process steps (1-5) */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.step{background:var(--paper);padding:28px 24px;display:flex;flex-direction:column}
+.step .n{font-family:'PT Serif',serif;font-style:italic;color:var(--copper);font-size:30px;margin-bottom:14px;line-height:1}
+.step h3{font-size:17px;color:var(--navy);margin-bottom:10px}
+.step p{font-size:14.5px;color:#4a4a5a;line-height:1.45}
+
+/* remains chips */
+.remain{background:var(--mist)}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.chip{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:11px 20px;font-size:15px;color:var(--navy);font-weight:500;transition:.18s}
+.chip:hover{border-color:var(--copper);color:var(--blue)}
+
+/* why now — 3 pillars on navy */
+.why{background:var(--navy);color:#e7e7f2}
+.why .eyebrow{color:#c9b6a6}.why .sec-title{color:#fff}.why .sec-sub{color:#b9b9d0}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:6px}
+.pillar{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:30px 26px}
+.pillar h3{font-family:'PT Serif',serif;font-style:italic;font-weight:400;font-size:26px;color:var(--copper);margin-bottom:12px}
+.pillar p{font-size:15.5px;color:#c7c7dd;line-height:1.5}
+
+/* starters */
+.starters{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:26px}
+.starter{border:1px solid var(--line);border-radius:6px;padding:34px 34px;background:var(--paper);transition:.2s}
+.starter:hover{border-color:var(--copper);box-shadow:0 18px 40px -26px rgba(25,25,76,.3);transform:translateY(-4px)}
+.starter .tag{font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--copper);font-weight:600;margin-bottom:14px}
+.starter h3{font-size:23px;color:var(--navy);margin-bottom:14px}
+.starter p{font-size:15.5px;color:#454556;line-height:1.55}
+.starter-note{font-size:16px;color:var(--muted);max-width:50em}
+.starter-note b{color:var(--navy);font-weight:600}
+
+/* conclusion plate */
+.plate{background:var(--blue);color:#fff;border-radius:6px;padding:56px}
+.plate .eyebrow{color:#c9b6a6}
+.plate h2{font-size:clamp(25px,3vw,36px);max-width:18em}
+.plate h2 em{font-family:'PT Serif',serif;font-style:italic;font-weight:400;color:#e8d3c2}
+.plate p{margin-top:22px;font-size:18px;color:#d7d7ee;max-width:46em}
+
+/* footer */
+footer{padding:40px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+footer .brand{color:var(--navy)}
+
+@media(max-width:1000px){
+  .tasks{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr 1fr}
+  .pillars{grid-template-columns:1fr}
+  .intro .wrap{grid-template-columns:1fr;gap:28px}
+}
+@media(max-width:900px){
+  .hero-copy{padding:56px 32px 60px}
+  .sol-body{grid-template-columns:1fr;gap:26px}
+  .starters{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .wrap{padding:0 20px}
+  .hero-copy{padding:44px 20px 48px}
+  section{padding:58px 0}
+  .tasks{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .sol-head{padding:28px 24px 22px;gap:16px}
+  .sol-head .sno{font-size:32px}
+  .sol-body{padding:26px 24px 4px}
+  .sol-change{margin:4px 24px 0}
+  .sol-meta{padding:18px 24px 28px}
+  .plate{padding:36px 26px}
+}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand">BITOBE</div>
+    <div class="topmeta">ИИ в работе людей и команд</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <span class="kicker">Возможные направления работы</span>
+      <h1>Встраиваем ИИ в работу руководителей, HR и <em>корпоративного обучения</em></h1>
+      <p class="hero-lead">Сотрудники уже используют генеративный ИИ, но чаще стихийно: без единых правил, с качеством, которое зависит от навыков конкретного человека. BITOBE помогает выбрать полезные сценарии, подготовить людей, задать правила и запустить решения в реальной работе.</p>
+      <div class="hero-res">
+        <span>Работающий пилот</span>
+        <span>Обученная команда</span>
+        <span>План внедрения</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- INTRO BAND -->
+<section class="intro">
+  <div class="wrap">
+    <p>Отдельные эксперименты редко превращаются в устойчивые рабочие процессы. <b>Мы помогаем компании выбрать полезные сценарии применения ИИ, подготовить сотрудников, установить понятные правила и запустить решения в реальной работе.</b> В результате компания получает не разовую активность, а рабочий инструмент.</p>
+    <div class="res-list">
+      <div><b>01</b> Работающий пилот на реальном процессе</div>
+      <div><b>02</b> Команда, обученная на задачах компании</div>
+      <div><b>03</b> Понятный план дальнейшего внедрения</div>
+    </div>
+  </div>
+</section>
+
+<!-- TASKS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Какие задачи мы помогаем решить</div>
+      <h2 class="sec-title">Четыре направления практической пользы</h2>
+    </div>
+    <div class="tasks">
+      <div class="task">
+        <div class="no">01</div>
+        <h3>Повысить качество управленческих решений</h3>
+        <p>Руководители применяют ИИ для анализа информации, подготовки решений, работы с документами и коммуникациями — понимая ограничения, проверяя ответы и сохраняя ответственность за итог.</p>
+      </div>
+      <div class="task">
+        <div class="no">02</div>
+        <h3>Сократить ручную работу в HR и обучении</h3>
+        <p>Компания находит HR- и L&amp;D-процессы, где ИИ экономит время и повышает качество: материалы, анализ данных, персонализация обучения, база знаний, поддержка сотрудников.</p>
+      </div>
+      <div class="task">
+        <div class="no">03</div>
+        <h3>Перевести пилоты ИИ в регулярную практику</h3>
+        <p>Правила, роли, показатели и план внедрения. Сотрудники понимают инструменты, руководители поддерживают изменения, заказчик оценивает эффект и решает о масштабировании.</p>
+      </div>
+      <div class="task">
+        <div class="no">04</div>
+        <h3>Быстрее создавать корпоративный контент</h3>
+        <p>ИИ помогает готовить учебные материалы, видео, цифровых ведущих, тренажёры и коммуникации — сокращая сроки производства и позволяя быстро обновлять контент.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section style="background:var(--mist)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Решения BITOBE</div>
+      <h2 class="sec-title">Четыре продукта под задачу компании</h2>
+      <p class="sec-sub">Каждое решение собирается вокруг конкретного процесса или группы сотрудников и доводится до рабочего пилота.</p>
+    </div>
+
+    <!-- 01 -->
+    <article class="solution">
+      <div class="sol-head">
+        <div class="sno">01</div>
+        <div>
+          <div class="who">Топ-команды · средний менеджмент · линейные руководители · кадровый резерв</div>
+          <h3>Управление в среде ИИ</h3>
+        </div>
+      </div>
+      <div class="sol-body">
+        <div class="sb-left">
+          <div class="block">
+            <div class="fl t">С какой задачей приходит клиент</div>
+            <p>Руководители уже пробуют ИИ, но используют его по-разному: одни доверяют ответам без проверки, другие избегают технологии, третьи применяют её только для простых текстовых задач. Компания хочет повысить эффективность руководителей и сохранить качество решений.</p>
+          </div>
+          <div class="block">
+            <div class="fl b">Что мы делаем</div>
+            <ul class="do-list">
+              <li>Определяем управленческие задачи, где ИИ полезен именно этой компании.</li>
+              <li>Разбираем реальные ситуации участников: подготовку решений, анализ документов, планирование, коммуникацию с командой, работу с большим объёмом информации.</li>
+              <li>Учим правильно ставить задачи ИИ, проверять выводы и принимать окончательное решение.</li>
+              <li>Совместно разрабатываем правила использования ИИ внутри команды.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="sb-right">
+          <div class="block">
+            <div class="fl c">Что получает клиент</div>
+            <ul class="get-list">
+              <li>Перечень управленческих задач для ИИ</li>
+              <li>Понятные правила работы с ИИ для руководителей</li>
+              <li>Алгоритм проверки ответов и рекомендаций</li>
+              <li>Шаблоны запросов и рабочие инструменты</li>
+              <li>Разобранные кейсы компании</li>
+              <li>Индивидуальные планы применения после обучения</li>
+              <li>Рекомендации по дальнейшему развитию руководителей</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="sol-change">
+        <div class="fl">Что меняется в работе</div>
+        <p>Руководители быстрее готовятся к встречам и решениям, качественнее анализируют информацию и используют единый подход к работе с ИИ. Компания снижает риск ошибок, связанных со слепым доверием технологии.</p>
+      </div>
+      <div class="sol-meta"><b>Базовый формат:</b> интервью с заказчиком, практический модуль для руководителей и встреча по итогам применения инструментов в работе.</div>
+    </article>
+
+    <!-- 02 -->
+    <article class="solution">
+      <div class="sol-head">
+        <div class="sno">02</div>
+        <div>
+          <div class="who">HRD · HRBP · L&amp;D-команды · корпоративные университеты · центры экспертизы</div>
+          <h3>ИИ в HR и корпоративном обучении</h3>
+        </div>
+      </div>
+      <div class="sol-body">
+        <div class="sb-left">
+          <div class="block">
+            <div class="fl t">С какой задачей приходит клиент</div>
+            <p>HR-команда видит потенциал ИИ, но пока использует отдельные сервисы и инструменты. Непонятно, с какого процесса начать, где будет реальная польза и как оценить результат.</p>
+          </div>
+          <div class="block">
+            <div class="fl b">Что мы делаем</div>
+            <ul class="do-list">
+              <li>Изучаем ключевые HR- и образовательные процессы.</li>
+              <li>Определяем задачи с высокой долей ручной работы и процессы с заметным эффектом от ИИ.</li>
+              <li>Отбираем с командой два-три сценария и выбираем один для пилота.</li>
+              <li>Проектируем новый порядок работы, роли, требования к качеству и показатели результата.</li>
+              <li>Готовим сотрудников и сопровождаем запуск.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="sb-right">
+          <div class="block">
+            <div class="fl c">Что получает клиент</div>
+            <ul class="get-list">
+              <li>Карта процессов, где целесообразно применять ИИ</li>
+              <li>Список приоритетных сценариев</li>
+              <li>Описание выбранного пилота</li>
+              <li>Новый порядок выполнения процесса</li>
+              <li>Распределение ролей между сотрудниками и ИИ</li>
+              <li>Критерии проверки качества</li>
+              <li>Показатели для оценки эффекта</li>
+              <li>План запуска и дальнейшего масштабирования</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="sol-change">
+        <div class="fl">Что меняется в работе</div>
+        <p>Компания проверяет пользу ИИ на конкретном процессе и получает фактические данные для решения. HR-команда сокращает ручную работу и повышает скорость или качество выбранной задачи.</p>
+      </div>
+      <div class="sol-meta"><b>Примеры процессов для пилота:</b> разработка учебных материалов, подготовка программ обучения, поиск информации в базе знаний, персонализация коммуникаций, анализ обратной связи, подготовка отчётов, поддержка внутренних экспертов.</div>
+    </article>
+
+    <!-- 03 -->
+    <article class="solution">
+      <div class="sol-head">
+        <div class="sno">03</div>
+        <div>
+          <div class="who">Компании, которые уже запустили ИИ-инструменты и хотят расширить их использование</div>
+          <h3>Внедрение ИИ в работу компании</h3>
+        </div>
+      </div>
+      <div class="sol-body">
+        <div class="sb-left">
+          <div class="block">
+            <div class="fl t">С какой задачей приходит клиент</div>
+            <p>Технологическое решение уже выбрано или протестировано, но сотрудники используют его нерегулярно. Руководители не всегда поддерживают изменения, роли остаются неясными, а эффект пилота трудно оценить.</p>
+          </div>
+          <div class="block">
+            <div class="fl b">Что мы делаем</div>
+            <ul class="do-list">
+              <li>Изучаем готовность сотрудников и руководителей к новым способам работы.</li>
+              <li>Определяем барьеры: нехватку навыков, недоверие, страх ошибок, отсутствие времени, неясные правила, слабую поддержку.</li>
+              <li>Разрабатываем план внедрения, коммуникации и обучение для разных групп сотрудников.</li>
+              <li>Помогаем руководителям встроить новые практики в работу команд.</li>
+              <li>Собираем обратную связь и корректируем решение по итогам пилота.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="sb-right">
+          <div class="block">
+            <div class="fl c">Что получает клиент</div>
+            <ul class="get-list">
+              <li>Оценка готовности сотрудников и руководителей</li>
+              <li>Карта рисков и барьеров</li>
+              <li>Понятное распределение ролей</li>
+              <li>Правила применения ИИ в работе</li>
+              <li>Программа подготовки сотрудников</li>
+              <li>Материалы для внутренних коммуникаций</li>
+              <li>План поддержки руководителей</li>
+              <li>Показатели использования и результата</li>
+              <li>Рекомендации по масштабированию</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="sol-change">
+        <div class="fl">Что меняется в работе</div>
+        <p>ИИ становится частью выбранных процессов. Сотрудники понимают, как и для чего применять инструмент, руководители поддерживают новые практики, а компания видит фактический результат внедрения.</p>
+      </div>
+    </article>
+
+    <!-- 04 -->
+    <article class="solution">
+      <div class="sol-head">
+        <div class="sno">04</div>
+        <div>
+          <div class="who">Корпоративные университеты · L&amp;D · HR-команды · внутренние коммуникации</div>
+          <h3>Корпоративное обучение и коммуникации с ИИ</h3>
+        </div>
+      </div>
+      <div class="sol-body">
+        <div class="sb-left">
+          <div class="block">
+            <div class="fl t">С какой задачей приходит клиент</div>
+            <p>Компании нужно быстро создавать и обновлять большое количество учебных и коммуникационных материалов. Традиционный процесс занимает много времени и требует значительных ресурсов экспертов, методологов и производственных команд.</p>
+          </div>
+          <div class="block">
+            <div class="fl b">Что мы делаем</div>
+            <ul class="do-list">
+              <li>Определяем задачу, аудиторию и нужное поведение сотрудников.</li>
+              <li>Разрабатываем образовательную или коммуникационную концепцию.</li>
+              <li>Создаём сценарии, учебные материалы и пользовательский путь.</li>
+              <li>Подбираем формат: короткие видео, цифровой ведущий, интерактивный разбор, тренажёр, навигатор или серия материалов.</li>
+              <li>Запускаем пилот и проверяем, насколько формат понятен и полезен аудитории.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="sb-right">
+          <div class="block">
+            <div class="fl c">Что получает клиент</div>
+            <ul class="get-list">
+              <li>Готовая концепция продукта</li>
+              <li>Сценарий и структура материалов</li>
+              <li>Пилотный образовательный или коммуникационный продукт</li>
+              <li>Шаблоны для дальнейшего производства</li>
+              <li>Правила проверки качества ИИ-контента</li>
+              <li>Рекомендации по применению формата в компании</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="sol-change">
+        <div class="fl">Что меняется в работе</div>
+        <p>Компания быстрее выпускает и обновляет материалы, снижает нагрузку на внутренних экспертов и получает форматы, которые можно использовать для большой аудитории.</p>
+      </div>
+      <div class="sol-meta"><b>Возможные задачи:</b> адаптация сотрудников, обучение руководителей, внедрение стратегии и ценностей, сопровождение изменений, работа с внутренними экспертами, инструкции и профессиональное обучение.</div>
+    </article>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Как строится работа</div>
+      <h2 class="sec-title">Пять шагов от задачи к результату</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Определяем бизнес-задачу</h3><p>Фиксируем процесс или группу сотрудников, для которых применение ИИ должно дать практический результат.</p></div>
+      <div class="step"><div class="n">2</div><h3>Выбираем сценарий</h3><p>Определяем конкретную рабочую задачу, формат решения и показатели, по которым оценим эффект.</p></div>
+      <div class="step"><div class="n">3</div><h3>Проектируем пилот</h3><p>Разрабатываем инструменты, правила, материалы и порядок работы.</p></div>
+      <div class="step"><div class="n">4</div><h3>Готовим сотрудников</h3><p>Проводим обучение и практическую работу на задачах компании.</p></div>
+      <div class="step"><div class="n">5</div><h3>Запускаем и оцениваем</h3><p>Собираем обратную связь, анализируем результаты и готовим рекомендации по развитию.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REMAINS -->
+<section class="remain">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Что остаётся в компании после проекта</div>
+      <h2 class="sec-title">Результаты, которые продолжают работать</h2>
+    </div>
+    <div class="chips">
+      <span class="chip">Рабочий сценарий применения ИИ</span>
+      <span class="chip">Понятный процесс и распределение ролей</span>
+      <span class="chip">Правила и инструкции для сотрудников</span>
+      <span class="chip">Шаблоны, запросы и инструменты</span>
+      <span class="chip">Обученная команда</span>
+      <span class="chip">Критерии проверки качества</span>
+      <span class="chip">Показатели для оценки результата</span>
+      <span class="chip">План дальнейшего внедрения</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY NOW -->
+<section class="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Почему это актуально сейчас</div>
+      <h2 class="sec-title">Доступ к ИИ перестал быть главным ограничением</h2>
+      <p class="sec-sub">Сервисы доступны сотрудникам, и многие пользуются ими самостоятельно. Задача компаний сегодня — определить, где технология приносит реальную пользу, подготовить людей и встроить инструменты в процессы без потери качества и ответственности. Наш подход объединяет три необходимых элемента.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><h3>Технология</h3><p>Понимание возможностей и ограничений генеративного ИИ.</p></div>
+      <div class="pillar"><h3>Люди</h3><p>Развитие навыков руководителей и сотрудников.</p></div>
+      <div class="pillar"><h3>Внедрение</h3><p>Изменение процессов, правил и ежедневной практики.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- START -->
+<section style="background:var(--mist)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">С чего предлагаем начать</div>
+      <h2 class="sec-title">Один из двух первых шагов</h2>
+    </div>
+    <div class="starters">
+      <div class="starter">
+        <div class="tag">Первый шаг · вариант A</div>
+        <h3>Управление в среде ИИ</h3>
+        <p>Практический модуль для руководителей с разработкой правил и инструментов для реальных управленческих задач.</p>
+      </div>
+      <div class="starter">
+        <div class="tag">Первый шаг · вариант B</div>
+        <h3>ИИ в HR и корпоративном обучении</h3>
+        <p>Короткий проект по выбору перспективных процессов и разработке одного пилотного решения.</p>
+      </div>
+    </div>
+    <p class="starter-note"><b>Небольшой первый проект</b> позволяет проверить пользу ИИ на реальной задаче, не перестраивая сразу всю систему работы, и получить фактические данные для дальнейших решений.</p>
+  </div>
+</section>
+
+<!-- NEXT STEP -->
+<section>
+  <div class="wrap">
+    <div class="plate">
+      <div class="eyebrow">Вопрос к вам</div>
+      <h2>Какие из этих направлений <em>актуальны</em> для вашей компании?</h2>
+      <p>Нам важно понять, какие задачи из перечисленных сейчас стоят перед вами и какие решения были бы полезны. Если что-то откликается — отметьте нужные направления, и мы предложим формат под вашу ситуацию: объём, аудиторию, сроки и ожидаемый результат.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">BITOBE</div>
+    <div>Встраиваем ИИ в работу людей и команд</div>
+  </div>
+</footer>
+
+</body>
+</html>
